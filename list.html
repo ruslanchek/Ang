@@ -1,0 +1,21 @@
+<h1>Items list</h1>
+<hr>
+
+<a href="#" ng-click="setSorting('id')" class="{{orderProp == 'id' | ie: 'active':''}} button volume">ID</a>
+<a href="#" ng-click="setSorting('title')" class="{{orderProp == 'title' | ie: 'active':''}} button volume">Title</a>
+<a href="#" ng-click="setSorting('userId')" class="{{orderProp == 'userId' | ie: 'active':''}} button volume">User ID</a>
+
+<br>
+<br>
+
+<div class="list">
+    <div class="item" ng-repeat="item in items | orderBy:orderProp">
+        <strong>{{item.id}}. <a href="/list/{{item.id}}">{{item.title}}</a></strong><br>
+        
+        {{item.body}}
+
+        <div class="text-fade">
+            User ID: {{item.userId}}
+        </div>
+    </div>
+</div>

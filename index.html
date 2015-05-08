@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <base href="/">
 
     <link rel="stylesheet" href="loading-bar.css">
     <link rel="stylesheet" href="quodo.css">
@@ -11,36 +12,26 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.3.15/angular-resource.js"></script>
     <script src="https://code.angularjs.org/1.3.15/angular-animate.min.js"></script>
+    <script src="https://code.angularjs.org/1.3.15/angular-route.min.js"></script>
+
     <script src="app.js"></script>
     <script src="loading-bar.js"></script>
 </head>
-<body ng-controller="listCtrl">
+
+<body ng-controller="appCtrl">
     <div class="wrap">
         <main>
             <div class="limiter">
-                <div class="list">
-                    <div class="grid">
-                        <div class="col-6">
-                            <nav class="nav bordered">
-                                <a href="#" class="active">List</a>
-                                <a href="#">List</a>
-                                <a href="#">List</a>
-                                <a href="#">List</a>
-                                <a href="#">List</a>
-                            </nav>
-                        </div>
+                <div class="grid">
+                    <div class="col-6">
+                        <h1><a href="/">App</a></h1>
+                        <nav class="nav bordered">
+                            <a href="/list">List</a>
+                        </nav>
+                    </div>
 
-                        <div class="col-18">
-                            <a href="#" class="button volume">ID</a>
-                            <a href="#" class="button volume active">Title</a>
-                            <a href="#" class="button volume">Name</a>
-                            <br>
-                            <br>
-                            <div class="item" ng-repeat="item in items | orderBy:orderProp">
-                                <strong>{{item.id}}. {{item.title}}</strong><br>
-                                {{item.body}}
-                            </div>
-                        </div>
+                    <div class="col-18">
+                        <div ng-view></div>
                     </div>
                 </div>
             </div>
